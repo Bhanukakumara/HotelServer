@@ -1,5 +1,6 @@
 package edu.bks.HotelServer.entity;
 
+import edu.bks.HotelServer.dto.UserDto;
 import edu.bks.HotelServer.enums.UserRole;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -52,5 +53,14 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public UserDto getUserDto(){
+        UserDto dto = new UserDto();
+        dto.setId(id);
+        dto.setName(name);
+        dto.setEmail(email);
+        dto.setUserRole(userRole);
+        return dto;
     }
 }
